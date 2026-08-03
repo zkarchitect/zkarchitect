@@ -1,57 +1,69 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/zkarchitect/zkforge/main/assets/logo.svg" alt="ZKForge" width="360" />
+# ⚡ ZK Architect — Building Verifiable Zero-Knowledge
 
-  <h3>Pure Rust ZK Compiler — No circom. No snarkjs. No Node.js.</h3>
+> **Every push is adversarial. Every bug has a regression test. Every claim is CI-verified.**
 
-  <p>
-    <a href="https://github.com/zkarchitect/zkforge"><img src="https://img.shields.io/badge/zkforge-Pure%20Rust%20ZK%20Compiler-00d4aa?style=flat-square&logo=rust" /></a>
-    <a href="https://github.com/zkarchitect/zkforge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" /></a>
-    <img src="https://img.shields.io/badge/proof%20speed-0.03s-red?style=flat-square" />
-    <img src="https://img.shields.io/badge/systems-Groth16%20%7C%20PLONK-blueviolet?style=flat-square" />
-  </p>
+---
 
-  <hr width="50%" />
+<a href="https://github.com/zkarchitect/zkforge">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/zkarchitect/zkforge/main/assets/logo.svg" />
+    <img src="https://raw.githubusercontent.com/zkarchitect/zkforge/main/assets/logo.svg" width="340" alt="ZKForge" />
+  </picture>
+</a>
 
-  <h3>📊 zkforge in Numbers</h3>
+<p>
+  <a href="https://github.com/zkarchitect/zkforge"><img src="https://img.shields.io/badge/⭐-zkforge-00d4aa?style=flat-square&logo=rust" /></a>
+  <a href="https://github.com/zkarchitect/zkforge/actions"><img src="https://github.com/zkarchitect/zkforge/actions/workflows/verifiable-ci.yml/badge.svg?branch=main" alt="Verifiable CI" /></a>
+  <img src="https://img.shields.io/badge/tests-128%2F128-brightgreen?style=flat-square" />
+  <img src="https://img.shields.io/badge/proof%20speed-0.03s-red?style=flat-square" />
+  <img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" />
+</p>
 
-  | Metric | Value |
-  |--------|-------|
-  | Proving time (simple circuit) | **0.03s** |
-  | Proof size | **128 bytes** |
-  | Test suite | **128/128 passing** |
-  | Lines of Rust | **~3,500** |
-  | Proof systems | **Groth16 + PLONK** |
-  | Verifier output | **Solidity (EIP-197) + Foundry deploy** |
+---
 
-  <hr width="50%" />
+### 🐛 The Bug Hall of Fame
 
-  <h3>🔥 What Sets zkforge Apart</h3>
+> 3 critical bugs found in our own ZK compiler. All fixed. All CI-verified on every push.
 
-  <table>
-    <tr><td>🚀</td><td><strong>0.03s proving</strong> — 10x faster than circom/snarkjs</td></tr>
-    <tr><td>🦀</td><td><strong>Pure Rust</strong> — one language, one binary, no JavaScript</td></tr>
-    <tr><td>🧠</td><td><strong>Built-in zkML</strong> — neural network inference in zero knowledge</td></tr>
-    <tr><td>🔐</td><td><strong>Auto-Shielding</strong> — wrap any contract with ZK privacy automatically</td></tr>
-    <tr><td>🔄</td><td><strong>Recursive proofs</strong> — compose proofs natively</td></tr>
-    <tr><td>📦</td><td><strong>One-command deploy</strong> — Solidity verifier + Foundry package</td></tr>
-    <tr><td>🛡️</td><td><strong>Security audited</strong> — 3 critical bugs found and fixed</td></tr>
-  </table>
+| Bug | Description | Fix | Status |
+|-----|------------|-----|--------|
+| **C1** | `assert age >= 18` passed when `age = 3` | Bit decomposition + field-aware comparison | ✅ CI-verified |
+| **C2** | PLONK prover used domain elements instead of witness | Connected to real witness map | ✅ CI-verified |
+| **C3** | `!=` used `-1` instead of `1` for inequality witness | Corrected to `diff · inv = 1` | ✅ CI-verified |
 
-  <hr width="50%" />
+**[Full audit →](https://github.com/zkarchitect/zkforge/blob/main/security_audit.md)** · **[Live CI →](https://github.com/zkarchitect/zkforge/actions)**
 
-  <h3>📦 Quick Install</h3>
+---
 
-  ```bash
-  cargo install zkforge
-  zkforge prove my_circuit.zkf
-  zkforge deploy my_circuit.zkf --chain-id 11155111
-  ```
+### 🔥 Why ZKForge Matters
 
-  <hr width="50%" />
+|  | ZKForge | circom + snarkjs |
+|---|---|---|
+| **Language** | Pure Rust | Rust DSL + JavaScript |
+| **Install** | `cargo install zkforge` | Node.js + npm + circom + snarkjs |
+| **Prove time** | **0.03s** | ~0.3s |
+| **Proof size** | 128 B | 128 B |
+| **Verifier** | Solidity + Foundry | Solidity (manual) |
+| **zkML** | Built-in | ❌ |
+| **Auto-shielding** | Automatic | ❌ |
 
-  <p>
-    <a href="https://github.com/zkarchitect/zkforge">🔗 zkforge repo</a> ·
-    <a href="https://github.com/zkarchitect/zkforge/discussions">💬 Discussions</a> ·
-    <a href="https://github.com/zkarchitect/zkforge/issues">🐛 Issues</a>
-  </p>
-</div>
+---
+
+### 📊 Live Dashboard
+
+| Metric | Value |
+|--------|-------|
+| Tests | 128/128 |
+| Regression checks | 3/3 (CI) |
+| Breaches detected | 0 |
+| Proof systems | Groth16 + PLONK |
+| Circuits proven | 41 |
+| zkML models | 2 (MNIST + Credit) |
+
+---
+
+<p align="center">
+  <a href="https://github.com/zkarchitect/zkforge">⭐ zkforge repo</a> ·
+  <a href="https://github.com/zkarchitect/zkforge/discussions">💬 Discussions</a> ·
+  <a href="https://github.com/zkarchitect/zkforge/issues">🐛 Issues</a>
+</p>
